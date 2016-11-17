@@ -3,12 +3,12 @@
 
 ##users_table
 
-#association
-has_many :groups , through: :group_users
-has_many :groups_users
+###association
+has_many :groups , through: :group_users<br>
+has_many :groups_users<br>
 has_many :messages
 
-#table_contents
+###table_contents
 |column     |type   |Constraint               |
 |:---       |:---   |:---                     |
 |name       |string |                         |
@@ -18,11 +18,11 @@ has_many :messages
 
 ##messages_table
 
-#association
-belongs_to :group
+###association
+belongs_to :group<br>
 belongs_to :user
 
-#table_contents
+###table_contents
 |column     |type   |Constraint |
 |:---       |:---   |:---       |
 |body       |string |           |
@@ -32,23 +32,23 @@ belongs_to :user
 
 ##groups_table
 
-#association
-has_many :users , through: :group_users
-has_many :groups_users
+###association
+has_many :users , through: :group_users<br>
+has_many :groups_users<br>
 has_many :messages
 
-#table_contents
+###table_contents
 |column     |type   |Constraint |
 |:---       |:---   |:---       |
 |name       |string |           |
 
 ##group_user_table
 
-#association
-belongs_to :group
+###association
+belongs_to :group<br>
 belongs_to :user
 
-#table_contents
+###table_contents
 |column     |type   |Constraint |
 |:---       |:---   |:---       |
 |group_id   |integer|foreign_key|
