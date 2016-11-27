@@ -1,11 +1,13 @@
 .chat {
   color: #FFFFFF;
   @import "./clearfix";
+  width: 100vw;
 }
 
 .chat-announce {
   background-color: #38AEF0;
   text-align: center;
+  width: 100vw;
   }
 
 .chat-side {
@@ -36,7 +38,7 @@
 .chat-side-group {
   padding: 20px 0 20px 20px;
   background-color: #2f3e51;
-  height: 100vh;
+  height: calc(100vh - 134px);
   &__name {
     font-size: 15px;
     padding-bottom: 5px;
@@ -47,11 +49,139 @@
   }
 }
 
+.chat-main {
+  float: left;
+  color: #eeeeee;
+  width: calc(100vw - 300px);
+  height: 96px;
+}
+
+.chat-main-group {
+  @import "./clearfix";
+  hr {
+    border-bottom: solid 1px #eeeeee;
+  }
+  height: 96px;
+  padding: 0 40px;
+  background-color: white;
+}
+
+.chat-main-group-left {
+  float: left;
+  &__name {
+    font-size: 20px;
+    color: #333333;
+    padding: 30px 10px 0 0;
+  }
+
+  &__member {
+    font-size: 12px;
+    color: #999999;
+  }
+}
+
+.chat-main-group-right {
+  float: right;
+  height: 40px;
+  color: #38AEF0;
+  margin-top: 28px;
+  &__edit {
+    border: solid 1px #38AEF0;
+    padding:10px 20px;
+    text-align: center;
+  }
+}
+
+.chat-main-message {
+  height: calc(100vh - 186px);
+  color: #434A54;
+  backgrund-color: #EEEEEE;
+  padding: 0px 40px;
+  &__message {
+    font-size: 14px;
+  }
+}
+
+.chat-main-message-title {
+  @import "./clearfix";
+  height: 30px;
+  padding-top: 46px;
+  &__name {
+    float: left;
+    font-size: 16px;
+    padding-right: 10px;
+    font-weight: bold;
+  }
+  &__time {
+    float: left;
+    font-size: 12px;
+    color: #999999;
+    padding-top: 2px;
+  }
+  &:after {
+    content:'';
+  }
+}
+
+.chat-main-input {
+  @import "./clearfix";
+  height: 90px;
+  background-color: #999999;
+  padding: 0px 40px;
+
+  &__left{
+    float: left;
+    border: none;
+  }
+
+  &__center {
+    height: 50px;
+    color: black;
+    float: left;
+    background-color: white;
+    line-height: 50px;
+    padding-right: 10px;
+  }
+
+  &__right{
+    float: right;
+  }
+}
+
+form {
+  padding: 20px 0 0 0;
+}
+
+textarea {
+  width:767px;
+  height: 50px;
+  border :none;
+  resize: none;
+  font-size: 16px;
+  line-height: 50px;
+  padding-left: 10px;
+}
+
+input {
+  color: white;
+  background-color: #38AEF0;
+  height: 50px;
+  width:80px;
+  border: none;
+}
 
 
 
 
 
+.chat-main-input-left {
+
+  // background-color: white;
+}
+
+.chat-main-input-right {
+
+}
 
 
 

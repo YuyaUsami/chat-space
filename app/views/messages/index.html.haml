@@ -20,4 +20,55 @@
           %p.chat-side-group__name aaaaaaaa
           %p.chat-side-group__message bbbbbb
   .chat-main
- 
+    .chat-main-group
+      .chat-main-group-left
+        %p.chat-main-group-left__name sampleグループ
+        %p.chat-main-group-left__member yuyausami
+      .chat-main-group-right
+        %a.chat-main-group-right__edit Edit
+    %hr
+    .chat-main-message
+      %ul
+        %li
+          .chat-main-message-title
+            %p.chat-main-message-title__name YuyaUsami
+            %p.chat-main-message-title__time 2016/11/26 20:31:35
+          %p.chat-main-message__message ああああああああ
+        %li
+          .chat-main-message-title
+            %p.chat-main-message-title__name YuyaUsami
+            %p.chat-main-message-title__time 2016/11/26 20:31:35
+          %p.chat-main-message__message ああああああああ
+
+
+    .chat-main-input
+      %form
+        .chat-main-input__left
+          %textarea{:placeholder => "Type a message"}
+        .chat-main-input__center
+          #{fa_icon "picture-o"}
+        .chat-main-input__right
+          %input{:type => "submit" ,:placeholder => "送信"}
+
+
+
+
+/ <form>
+/           <input type="text" placeholder="名前を入力してください"><br>
+/           <textarea placeholder="予約日時やご要望をお書きください"></textarea><br>
+/           <label>
+/             <input type="radio" name="RadioGroup1" value="0">　男性
+/           </label><br>
+/           <label>
+/             <input type="radio" name="RadioGroup1" value="1">　女性
+/           </label>
+/           アンケートにご協力ください。
+/           <label>
+/             <input type="checkbox" name="Checkbox" value="チェックボックス">
+/             このサイトは役立った </label>
+/             <select>
+/               <option value="student">学生</option>
+/               <option value="businessperson">社会人</option>
+/             </select>
+/             <input type="submit" value="予約メールを送る">
+/           </form>
