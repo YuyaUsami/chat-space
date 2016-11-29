@@ -1,0 +1,51 @@
+.chat
+  .chat-announce
+    %p チャットグループが作成されました。
+  .chat-side
+    .chat-side-user
+      .chat-side-user-left
+        %h2 宇佐見
+      .chat-side-user-right
+        #{fa_icon "edit"}
+        #{fa_icon "cog"}
+    .chat-side-group
+      %ul
+        %li
+          %p.chat-side-group__name UVERworld-Fun
+          %p.chat-side-group__message UVERworld好きようこそ！
+        %li
+          %p.chat-side-group__name 環境チーム
+          %p.chat-side-group__message 渋谷の環境を良くしよう！
+        %li
+          %p.chat-side-group__name 新卒エンジニアの会
+          %p.chat-side-group__message 新卒のエンジニアの交流を目的とした会！
+  .chat-main
+    .chat-main-group
+      .chat-main-group-left
+        %p.chat-main-group-left__name UVERworld-Fun
+        %p.chat-main-group-left__member yuya takuya shintarou
+      .chat-main-group-right
+        %a.chat-main-group-right__edit Edit
+    %hr
+    .chat-main-message
+      %ul
+        %li
+          .chat-main-message-title
+            %p.chat-main-message-title__name yuya
+            %p.chat-main-message-title__time 2016/11/26 20:31:35
+          %p.chat-main-message__message 12月ライブ行きます！
+        %li
+          .chat-main-message-title
+            %p.chat-main-message-title__name takuya
+            %p.chat-main-message-title__time 2016/11/26 20:31:35
+          %p.chat-main-message__message 待ってるよ〜〜！
+
+
+    .chat-main-input
+      %form
+        .chat-main-input__left
+          %textarea{:placeholder => "Type a message"}
+        .chat-main-input__center
+          #{fa_icon "picture-o"}
+        .chat-main-input__right
+          %input{:type => "submit" ,:placeholder => "送信"}
