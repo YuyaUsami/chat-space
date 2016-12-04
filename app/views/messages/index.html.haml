@@ -6,8 +6,9 @@
       .chat-side-user-left
         %h2 宇佐見
       .chat-side-user-right
-        #{fa_icon "edit"}
-        #{fa_icon "cog"}
+        = fa_icon "edit"
+        = link_to edit_user_registration_path do
+          %i.fa.fa-cog>
     .chat-side-group
       %ul
         %li
@@ -39,7 +40,6 @@
             %p.chat-main-message-title__name takuya
             %p.chat-main-message-title__time 2016/11/26 20:31:35
           %p.chat-main-message__message 待ってるよ〜〜！
-
 
     .chat-main-input
       %form
