@@ -4,9 +4,10 @@
       .chat-side-user-left
         %h2 宇佐見
       .chat-side-user-right
-        = fa_icon "edit"
+        = link_to new_group_path do
+          %i.fa.fa-edit
         = link_to edit_user_registration_path do
-          %i.fa.fa-cog>
+          %i.fa.fa-cog
     .chat-side-group
       %ul
         %li
@@ -24,7 +25,7 @@
         %p.chat-main-group-left__name UVERworld-Fun
         %p.chat-main-group-left__member yuya takuya shintarou
       .chat-main-group-right
-        %a.chat-main-group-right__edit Edit
+        / = link_to 'Edit' , edit_group_path(current_user.group.id), class: "chat-main-group-right__edit"
     %hr
     .chat-main-message
       %ul
