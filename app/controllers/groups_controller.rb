@@ -15,16 +15,9 @@ class GroupsController < ApplicationController
   def update
   end
 
-  def confirm
-    p post_parms
-  end
-
   private
   def create_params
     params.require(:group).permit(:name)
   end
 
-  def post_parms
-    params.require(:groups_controller_post).permit(persons: [])
-  end
 end
