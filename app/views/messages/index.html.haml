@@ -20,12 +20,13 @@
           %p.chat-side-group__name 新卒エンジニアの会
           %p.chat-side-group__message 新卒のエンジニアの交流を目的とした会！
   .chat-main
+    = @message.each do |message|
       .chat-main-group
         .chat-main-group-left
-          %p.chat-main-group-left__name UVERworld-Fun
+          %p.chat-main-group-left__name #{message.groups.name}
           %p.chat-main-group-left__member yuya takuya shintarou
         .chat-main-group-right
-          = link_to 'Edit' , edit_group_path(current_user), class: "chat-main-group-right__edit"
+          = link_to 'Edit' , edit_group_path(message.group_id), class: "chat-main-group-right__edit"
       %hr
       .chat-main-message
         %ul
