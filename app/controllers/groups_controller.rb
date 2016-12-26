@@ -4,8 +4,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(create_params)
-    redirect_to controller: :messages , action: :index
+    @group = Group.create(create_params)
+    if @group.save
+      redirect_to controller: 'messages' , action: 'index', notice: "作成が成功しました。"
+    else
+      flash.now[:false] = '作成に失敗しました。'
+      redirect_to controller: 'groups' ,action: 'new', notice: "作成に失敗しました。"
+    end
   end
 
   def edit
