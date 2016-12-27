@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.create(create_params)
+    @group = Group.create(group_params)
     if @group.save
       flash[:success] = '作成に成功しました。'
       redirect_to controller: 'messages' , action: 'index'
@@ -19,10 +19,14 @@ class GroupsController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    flash[:success] = '編集に成功しました。'
+    redirect_to controller: 'messages' , action: 'index'
   end
 
   private
-  def create_params
+  def group_params
     params.require(:group).permit(:name)
   end
 
