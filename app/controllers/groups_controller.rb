@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    binding.pry
     @group = Group.create(group_params)
     if @group.save
       flash[:success] = '作成に成功しました。'
@@ -27,7 +28,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name,{ :user_ids => [] })
   end
 
 end
