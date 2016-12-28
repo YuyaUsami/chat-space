@@ -20,31 +20,4 @@
           %p.chat-side-group__name 新卒エンジニアの会
           %p.chat-side-group__message 新卒のエンジニアの交流を目的とした会！
   .chat-main
-    .chat-main-group
-      .chat-main-group-left
-        %p.chat-main-group-left__name UVERworld-Fun
-        %p.chat-main-group-left__member yuya takuya shintarou
-      .chat-main-group-right
-        / = link_to 'Edit' , edit_group_path(current_user.group.id), class: "chat-main-group-right__edit"
-    %hr
-    .chat-main-message
-      %ul
-        %li
-          .chat-main-message-title
-            %p.chat-main-message-title__name yuya
-            %p.chat-main-message-title__time 2016/11/26 20:31:35
-          %p.chat-main-message__message 12月ライブ行きます！
-        %li
-          .chat-main-message-title
-            %p.chat-main-message-title__name takuya
-            %p.chat-main-message-title__time 2016/11/26 20:31:35
-          %p.chat-main-message__message 待ってるよ〜〜！
-
-    .chat-main-input
-      %form
-        .chat-main-input__left
-          %textarea{:placeholder => "Type a message"}
-        .chat-main-input__center
-          #{fa_icon "picture-o"}
-        .chat-main-input__right
-          %input{:type => "submit" ,:placeholder => "送信"}
+    = render partial: "message", collection: @message
