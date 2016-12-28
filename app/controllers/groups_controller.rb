@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :prepare_group, only: [:edit, :update]
+  before_action :set_group, only: [:edit, :update]
 
   def new
     @group = Group.new
@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       flash[:success] = '作成に成功しました。'
-      redirect_to controller: 'messages' , action: 'index'
+      redirect_to messages_path
     else
       flash[:false] = '作成に失敗しました。'
       render 'new'
@@ -20,10 +20,9 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group.update(group_params)
-    if @group.save
+    if @group.update(group_params)
       flash[:success] = '編集に成功しました。'
-      redirect_to controller: 'messages' , action: 'index'
+      redirect_to messages_path
     else
       flash[:false] = '編集に失敗しました。'
       render 'edit'
@@ -35,7 +34,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name,{ :user_ids => [] })
   end
 
-  def prepare_group
+  def set_group
     @group = Group.find(params[:id])
   end
 
