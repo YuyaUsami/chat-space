@@ -1,11 +1,12 @@
 class GroupsController < ApplicationController
+  before_action :prepare_group, only: [:edit, :update]
+
   def new
     @group = Group.new
   end
 
   def create
-    binding.pry
-    @group = Group.create(group_params)
+    @group = Group.new(group_params)
     if @group.save
       flash[:success] = '作成に成功しました。'
       redirect_to controller: 'messages' , action: 'index'
@@ -16,19 +17,26 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
   end
 
   def update
-    @group = Group.find(params[:id])
     @group.update(group_params)
-    flash[:success] = '編集に成功しました。'
-    redirect_to controller: 'messages' , action: 'index'
+    if @group.save
+      flash[:success] = '編集に成功しました。'
+      redirect_to controller: 'messages' , action: 'index'
+    else
+      flash[:false] = '編集に失敗しました。'
+      render 'edit'
+    end
   end
 
   private
   def group_params
     params.require(:group).permit(:name,{ :user_ids => [] })
+  end
+
+  def prepare_group
+    @group = Group.find(params[:id])
   end
 
 end
