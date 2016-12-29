@@ -1,10 +1,3 @@
-.chat-main-group
-  .chat-main-group-left
-    %p.chat-main-group-left__name #{message.group.name}
-    %p.chat-main-group-left__member yuya takuya shintarou
-  .chat-main-group-right
-    = link_to 'Edit' , edit_group_path(message.group_id), class: "chat-main-group-right__edit"
-%hr
 .chat-main-message
   %ul
     %li
@@ -18,11 +11,3 @@
         %p.chat-main-message-title__time 2016/11/26 20:31:35
       %p.chat-main-message__message 待ってるよ〜〜！
 
-.chat-main-input
-  = form_for [@group,@message] do |f|
-    .chat-main-input__left
-      = f.text_field :body, placeholder:"Type a message",class: 'input_message'
-    .chat-main-input__center
-      = fa_icon 'picture-o'
-    .chat-main-input__right
-      = f.submit '送信', class: "send-botton"

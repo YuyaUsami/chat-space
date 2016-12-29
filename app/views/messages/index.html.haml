@@ -2,7 +2,7 @@
   .chat-side
     .chat-side-user
       .chat-side-user-left
-        %h2 宇佐見
+        %h2 #{current_user.name}
       .chat-side-user-right
         = link_to new_group_path do
           %i.fa.fa-edit
@@ -20,4 +20,12 @@
           %p.chat-side-group__name 新卒エンジニアの会
           %p.chat-side-group__message 新卒のエンジニアの交流を目的とした会！
   .chat-main
-    = render partial: "message", collection: @messages
+    .chat-main-group
+      .chat-main-group-left
+        %p.chat-main-group-left__name #{current_user.groups.name}
+        %p.chat-main-group-left__member yuya takuya shintarou
+      .chat-main-group-right
+        = link_to 'Edit' , edit_group_path(@group), class: "chat-main-group-right__edit"
+    %hr
+    = render partial: 'message', locals: { message: @messages }
+    = render partial: 'form'
