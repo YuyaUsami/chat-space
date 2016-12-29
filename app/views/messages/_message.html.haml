@@ -19,10 +19,10 @@
       %p.chat-main-message__message 待ってるよ〜〜！
 
 .chat-main-input
-  %form
+  = form_for [@group,@message] do |f|
     .chat-main-input__left
-      %textarea{placeholder: "Type a message"}
+      = f.text_field :body, placeholder:"Type a message",class: 'input_message'
     .chat-main-input__center
-      #{fa_icon "picture-o"}
+      = fa_icon 'picture-o'
     .chat-main-input__right
-      %input{type: "submit" ,placeholder: "送信"}
+      = f.submit '送信', class: "send-botton"
