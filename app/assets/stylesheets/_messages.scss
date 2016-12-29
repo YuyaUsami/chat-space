@@ -151,7 +151,7 @@
     padding-top: 20px;
   }
 
-  textarea {
+  .input_message {
     width:767px;
     height: 50px;
     border :none;
@@ -161,7 +161,7 @@
     padding-left: 10px;
   }
 
-  input {
+  .send-bottom {
     color: white;
     background-color: $light-blue;
     height: 50px;
