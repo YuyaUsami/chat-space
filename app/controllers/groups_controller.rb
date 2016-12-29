@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       flash[:success] = '作成に成功しました。'
-      redirect_to messages_path
+      redirect_to group_messages_path
     else
       flash[:false] = '作成に失敗しました。'
       render 'new'
@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   def update
     if @group.update(group_params)
       flash[:success] = '編集に成功しました。'
-      redirect_to messages_path
+      redirect_to group_messages_path
     else
       flash[:false] = '編集に失敗しました。'
       render 'edit'
