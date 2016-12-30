@@ -1,13 +1,13 @@
 class MessagesController < ApplicationController
+  before_action :set_group, only: [:index, :create]
+
   def index
-    @group = Group.find(params[:group_id])
     @message = Message.new
     @messages = Message.where(group_id: params[:group_id])
   end
 
   def create
-    @group = Group.find(params[:group_id])
-    @message = Message.new(comment_params)
+    @message = Message.new(create_params)
     if @message.save
       flash[:success] = '作成に成功しました。'
       redirect_to group_messages_path(@group)
@@ -18,7 +18,11 @@ class MessagesController < ApplicationController
   end
 
   private
-  def comment_params
+  def create_params
     params.require(:message).permit(:body).merge(group_id: params[:group_id], user_id: current_user.id)
+  end
+
+  def set_group
+    @group = Group.find(params[:group_id])
   end
 end
