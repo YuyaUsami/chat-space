@@ -9,21 +9,12 @@
         = link_to edit_user_registration_path do
           %i.fa.fa-cog
     .chat-side-group
-      - @groups.each do |group|
-        %ul
-          %li
-            = link_to group_messages_path(group) do
-              %p.chat-side-group__name
-                = group.name
-              - if group.messages.present?
-                %p.chat-side-group__message #{group.messages.last.body}
-              - else
-                %p メッセージがありません
+      = render partial: 'group', collection: @groups
   .chat-main
     .chat-main-group
       .chat-main-group-left
         %p.chat-main-group-left__name
-          =current_user.groups.last.name
+          = current_user.groups.last.name
         %p.chat-main-group-left__member yuya takuya shintarou
       .chat-main-group-right
         = link_to 'Edit' , edit_group_path(@group), class: 'chat-main-group-right__edit'

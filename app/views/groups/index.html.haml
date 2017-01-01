@@ -8,14 +8,5 @@
           %i.fa.fa-edit
         = link_to edit_user_registration_path do
           %i.fa.fa-cog
-
     .chat-side-group
-      %ul
-        - @groups.each do |group|
-          %li
-            = link_to group_messages_path(group) do
-              %p.chat-side-group__name #{group.name}
-              - if group.messages.present?
-                %p.chat-side-group__message #{group.messages.last.body}
-              - else
-                %p メッセージがありません
+      = render partial: 'group', collection: @groups
