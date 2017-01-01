@@ -104,6 +104,11 @@
   }
 }
 
+.chat-main-message-content {
+  height: 50px;
+  padding-bottom: 10px;
+}
+
 .chat-main-message-title {
   @import "./clearfix";
   height: 30px;
