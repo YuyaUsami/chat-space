@@ -9,23 +9,25 @@
         = link_to edit_user_registration_path do
           %i.fa.fa-cog
     .chat-side-group
-      %ul
-        %li
-          %p.chat-side-group__name UVERworld-Fun
-          %p.chat-side-group__message UVERworld好きようこそ！
-        %li
-          %p.chat-side-group__name 環境チーム
-          %p.chat-side-group__message 渋谷の環境を良くしよう！
-        %li
-          %p.chat-side-group__name 新卒エンジニアの会
-          %p.chat-side-group__message 新卒のエンジニアの交流を目的とした会！
+      - @groups.each do |group|
+        %ul
+          %li
+            = link_to group_messages_path(group) do
+              %p.chat-side-group__name
+                = group.name
+              - if group.messages.present?
+                %p.chat-side-group__message #{group.messages.last.body}
+              - else
+                %p メッセージがありません
   .chat-main
     .chat-main-group
       .chat-main-group-left
-        %p.chat-main-group-left__name #{current_user.groups.name}
+        %p.chat-main-group-left__name
+          =current_user.groups.last.name
         %p.chat-main-group-left__member yuya takuya shintarou
       .chat-main-group-right
         = link_to 'Edit' , edit_group_path(@group), class: 'chat-main-group-right__edit'
     %hr
-    = render partial: 'message', locals: { messages: @messages }
+    .chat-main-message
+      = render partial: 'message', collection: @messages
     = render partial: 'form'
