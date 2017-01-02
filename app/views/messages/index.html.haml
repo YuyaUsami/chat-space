@@ -2,22 +2,23 @@
   .chat-side
     .chat-side-user
       .chat-side-user-left
-        %h2 宇佐見
+        %h2 #{current_user.name}
       .chat-side-user-right
         = link_to new_group_path do
           %i.fa.fa-edit
         = link_to edit_user_registration_path do
           %i.fa.fa-cog
     .chat-side-group
-      %ul
-        %li
-          %p.chat-side-group__name UVERworld-Fun
-          %p.chat-side-group__message UVERworld好きようこそ！
-        %li
-          %p.chat-side-group__name 環境チーム
-          %p.chat-side-group__message 渋谷の環境を良くしよう！
-        %li
-          %p.chat-side-group__name 新卒エンジニアの会
-          %p.chat-side-group__message 新卒のエンジニアの交流を目的とした会！
+      = render partial: 'group', collection: @groups
   .chat-main
-    = render partial: "message", collection: @message
+    .chat-main-group
+      .chat-main-group-left
+        %p.chat-main-group-left__name
+          = current_user.groups.last.name
+        %p.chat-main-group-left__member yuya takuya shintarou
+      .chat-main-group-right
+        = link_to 'Edit' , edit_group_path(@group), class: 'chat-main-group-right__edit'
+    %hr
+    .chat-main-message
+      = render partial: 'message', collection: @messages
+    = render partial: 'form'

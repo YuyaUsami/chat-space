@@ -1,0 +1,12 @@
+.chat
+  .chat-side
+    .chat-side-user
+      .chat-side-user-left
+        %h2 #{current_user.name}
+      .chat-side-user-right
+        = link_to new_group_path do
+          %i.fa.fa-edit
+        = link_to edit_user_registration_path do
+          %i.fa.fa-cog
+    .chat-side-group
+      = render partial: 'group', collection: @groups
