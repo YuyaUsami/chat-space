@@ -7,19 +7,19 @@ describe User do
     end
 
     it "is invalid without an email" do
-      user = build(:user, email: nil)
+      user = build(:user, :with_email)
       user.valid?
       expect(user.errors[:email]).to include("を入力してください。")
     end
 
     it "is invalid without an password" do
-      user = build(:user, password: nil)
+      user = build(:user, :with_password)
       user.valid?
       expect(user.errors[:password]).to include("を入力してください。")
     end
 
     it "is invalid without a password_confirmation although with a password" do
-      user = build(:user, password_confirmation: "")
+      user = build(:user, :with_password_confirmation)
       user.valid?
       expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません。")
     end
@@ -32,12 +32,12 @@ describe User do
     end
 
     it "is invalid with a password that has more than 8 characters " do
-      user = build(:user, password: "00000000", password_confirmation: "00000000")
+      user = build(:user, :with_password_relationship_more)
       expect(user).to be_valid
     end
 
     it "is invalid with a password that has less than 7 characters " do
-      user = build(:user, password: "0000000", password_confirmation: "0000000")
+      user = build(:user, :with_password_relationship_less)
       user.valid?
       expect(user.errors[:password][0]).to include("は8文字以上で入力してください")
     end
