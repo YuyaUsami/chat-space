@@ -13,13 +13,13 @@ describe User do
     end
 
     it "is invalid without an password" do
-      user = build(:user, :with_password)
+      user = build(:user, :with_empty_password)
       user.valid?
       expect(user.errors[:password]).to include("を入力してください。")
     end
 
     it "is invalid without a password_confirmation although with a password" do
-      user = build(:user, :with_password_confirmation)
+      user = build(:user, :with_empty_password_confirmation)
       user.valid?
       expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません。")
     end

@@ -9,11 +9,11 @@ FactoryGirl.define do
       email nil
     end
 
-    trait :with_password do
+    trait :with_empty_password do
       password nil
     end
 
-    trait :with_password_confirmation do
+    trait :with_empty_password_confirmation do
       password_confirmation ""
     end
 
