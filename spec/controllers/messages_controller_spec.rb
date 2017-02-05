@@ -5,7 +5,7 @@ describe MessagesController do
     create(:user)
   end
   let(:message) do
-    create_list(:message, 3, group_id: group.id, body: "aaa")
+    create_list(:message, 1, group_id: group.id, body: "aaa")
   end
   let(:group) do
     create(:group)
@@ -26,7 +26,4 @@ describe MessagesController do
       expect(assigns(:messages)).to match(message.sort{ |a, b| b.created_at <=> a.created_at })
     end
   end
-
-  # describe 'POST #create' do
-  # end
 end
