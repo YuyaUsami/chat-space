@@ -1,15 +1,9 @@
 require 'rails_helper'
 
 describe MessagesController do
-  let(:user) do
-    create(:user)
-  end
-  let(:message) do
-    create_list(:message, 1, group_id: group.id, body: "aaa")
-  end
-  let(:group) do
-    create(:group)
-  end
+  let(:user) {create(:user)}
+  let(:message) {create_list(:message, 1, group_id: group.id)}
+  let(:group) {create(:group)}
 
   before do
     login_user user
@@ -24,6 +18,11 @@ describe MessagesController do
     it "assigns the requested contact to @messages" do
       get :index, group_id: group
       expect(assigns(:messages)).to match(message.sort{ |a, b| b.created_at <=> a.created_at })
+    end
+
+    it "assigns the requested contact to @groups" do
+      get :index, group_id: group
+      expect(assigns(:groups)).to eq group
     end
   end
 end
