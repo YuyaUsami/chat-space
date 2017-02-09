@@ -22,7 +22,7 @@ describe MessagesController do
 
     it "assigns the requested contact to @groups" do
       get :index, group_id: group
-      expect(assigns(:groups)).to eq group
+      expect(assigns(:group)).to match(group)
     end
   end
 end
