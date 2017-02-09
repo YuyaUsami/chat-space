@@ -7,7 +7,7 @@ describe Message do
     end
 
     it "is invalid without an body" do
-      user = build(:message, :with_body)
+      user = build(:message, :with_empty_body)
       user.valid?
       expect(user.errors[:body]).to include("を入力してください。")
     end

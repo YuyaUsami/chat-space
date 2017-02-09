@@ -7,7 +7,7 @@ describe User do
     end
 
     it "is invalid without an email" do
-      user = build(:user, :with_email)
+      user = build(:user, :with_empty_email)
       user.valid?
       expect(user.errors[:email]).to include("を入力してください。")
     end
