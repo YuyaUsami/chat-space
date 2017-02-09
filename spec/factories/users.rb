@@ -5,7 +5,7 @@ FactoryGirl.define do
     password              "aaaaaaaa"
     password_confirmation "aaaaaaaa"
 
-    trait :with_email do
+    trait :with_empty_email do
       email nil
     end
 

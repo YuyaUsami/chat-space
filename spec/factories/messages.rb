@@ -1,12 +1,10 @@
 FactoryGirl.define do
   factory :message do
-    body "aaaaa"
-    image nil
-    group_id nil
-    user_id nil
+    body { Faker::Lorem.sentence }
+    image { Faker::Avatar.image }
     created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
 
-    trait :with_body do
+    trait :with_empty_body do
       body nil
     end
   end
