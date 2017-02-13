@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to group_messages_path(@group) }
-        format.json { render json: { name: @message.user.name, time: @message.created_at, body: @message.body } }
+        format.json { render json: { name: @message.user.name, time: @message.created_at.strftime('%Y/%m/%d %H:%M:%S'), body: @message.body } }
       end
       flash[:success] = '作成に成功しました。'
     else
