@@ -38,6 +38,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem "font-awesome-rails"
   gem 'devise'
   gem 'pry-rails'
+  gem 'jquery-rails'
 
 group :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
