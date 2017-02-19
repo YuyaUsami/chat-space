@@ -33,16 +33,16 @@ $('#user-search-field').keyup(function() {
     data: { name: word },
     dataType: 'json'
   })
-  .done(function(users) {
+  .done(function(data) {
       var insertHTML = "";
-      users.forEach(function(user){
+      data.forEach(function(user){
         insertHTML += buildSearchedUserHTML(user);
       });
       $('#user-search-result').html(insertHTML);
   })
-  .fail(function(users) {
+  .fail(function(data) {
     alert('エラーが発生しました');
-  });
+  })
 });
 
 $('#user-search-result').on('click', '.chat-group-user__add-button',function() {
@@ -52,11 +52,11 @@ $('#user-search-result').on('click', '.chat-group-user__add-button',function() {
   var insertHTML = buildAddedUserHTML(name, id);
   $('#user-add-list').append(insertHTML);
     user.parent('.chat-group-form__field--right').remove();
-});
+  });
 
 $('#user-add-list').on('click', '.chat-group-user__delete-button',function(){
   var user = $(this);
   var id = user.data('user_id');
   user.parent('.chat-group-form__field--right').remove();
-  });
+  })
 });
