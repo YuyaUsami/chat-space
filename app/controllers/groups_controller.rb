@@ -12,8 +12,11 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group) }
+        format.json { render json: { name: @group.name } }
+      end
       flash[:success] = '作成に成功しました。'
-      redirect_to group_messages_path(@group)
     else
       flash[:false] = '作成に失敗しました。'
       render 'new'
