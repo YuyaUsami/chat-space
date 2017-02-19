@@ -8,9 +8,7 @@
     .chat-group-form__field--left
       = f.label 'チャットメンバーを追加', class: 'chat-group-form__label', for: 'chat_group_チャットメンバー'
     #user-search-field.chat-group-form__field--right
-      / = collection_check_boxes :group, :user_ids, User.all, :id, :name
-      / = f.text_field :user_ids, class: 'chat-group-form__input', placeholder: '追加したいユーザー名を登録してください'
-      %input.chat-group-form__input#user-search-input{:placeholder => "追加したいユーザー名を入力してください", :type => "text"}
+      %input.chat-group-form__input#user-search-input{placeholder: "追加したいユーザー名を入力してください", type: "text"}
     #user-search-result
   .chat-group-form__field
     .chat-group-form__field--left
