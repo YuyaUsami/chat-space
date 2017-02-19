@@ -14,7 +14,7 @@
     .chat-main-group
       .chat-main-group-left
         %p.chat-main-group-left__name
-          = current_user.groups.last.name
+          = current_user.groups.name
         %p.chat-main-group-left__member yuya takuya shintarou
       .chat-main-group-right
         = link_to 'Edit' , edit_group_path(@group), class: 'chat-main-group-right__edit'
