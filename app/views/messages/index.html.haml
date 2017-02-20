@@ -14,8 +14,10 @@
     .chat-main-group
       .chat-main-group-left
         %p.chat-main-group-left__name
-          = current_user.groups.last.name
-        %p.chat-main-group-left__member yuya takuya shintarou
+          = @group.name
+        %p.chat-main-group-left__member
+          - @group.users.each do |user|
+            = user.name
       .chat-main-group-right
         = link_to 'Edit' , edit_group_path(@group), class: 'chat-main-group-right__edit'
     %hr
