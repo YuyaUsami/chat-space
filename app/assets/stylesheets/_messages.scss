@@ -148,6 +148,12 @@
     background-color: white;
     line-height: 50px;
     padding-right: 10px;
+    input {
+      display:none;
+    }
+    .image {
+      cursor:pointer;
+    }
   }
 
   &__right{
