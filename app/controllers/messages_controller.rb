@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to group_messages_path(@group) }
-        format.json { render json: { name: @message.user.name, time: @message.created_at.strftime('%Y/%m/%d %H:%M:%S'), body: @message.body } }
+        format.json { render json: { name: @message.user.name, time: @message.created_at.strftime('%Y/%m/%d %H:%M:%S'), body: @message.body, image: @message.image } }
       end
       flash[:success] = '作成に成功しました。'
     else
@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
 
   private
   def create_params
-    params.require(:message).permit(:body).merge(group_id: params[:group_id], user_id: current_user.id)
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id], user_id: current_user.id)
   end
 
   def set_group
