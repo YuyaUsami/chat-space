@@ -3,6 +3,8 @@
     .chat-main-input__left
       = f.text_field :body, class: 'input_message', placeholder: 'Type a message'
     .chat-main-input__center
-      = fa_icon 'picture-o'
+      = f.label :image do
+        %i.fa.fa-picture-o
+          = f.file_field :image
     .chat-main-input__right
       = f.submit '送信', class: 'send-botton'
