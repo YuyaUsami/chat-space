@@ -31,4 +31,20 @@ $(function() {
       alert('error');
     });
   });
+  setInterval(reload, 1000)
+  function reload (){
+  $.ajax({
+    type: 'GET',
+    url: window.location.href,
+    dataType: 'json'
+  })
+  .done(function(message){
+    $('.chat-main-message').remove();
+      messages.forEach(function(message){
+        insertHTML += buildHTML(message);
+      });
+    $('.chat-main-messages').append(insertHTML)
+    });
+    console.log('aaa')
+  };
 });
