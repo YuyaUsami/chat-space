@@ -14,10 +14,10 @@ CarrierWave.configure do |config|
   case Rails.env
     when 'development'
       config.fog_directory  = 'chatspace-tcyuya'
-      config.asset_host = 'https://s3.amazonaws.com/chatspace-tcyuya'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/chatspace-tcyuya'
     when 'production'
       config.fog_directory  = 'chatspace-tcyuya'
-      config.asset_host = 'https://s3.amazonaws.com/chatspace-tcyuya'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/chatspace-tcyuya'
     when 'test'
       config.storage :file
     end
