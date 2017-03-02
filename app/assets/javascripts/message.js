@@ -23,6 +23,7 @@ $(function() {
       processData : false
     })
     .done(function(data) {
+      console.log(data)
       var html = buildHTML(data);
       $('.chat-main-message').append(html);
       $('.js-form')[0].reset();
@@ -30,21 +31,24 @@ $(function() {
     .fail(function() {
       alert('error');
     });
+    reloadPage();
   });
-  setInterval(reload, 1000)
-  function reload (){
-  $.ajax({
-    type: 'GET',
-    url: window.location.href,
-    dataType: 'json'
-  })
-  .done(function(message){
-    $('.chat-main-message').remove();
-      messages.forEach(function(message){
-        insertHTML += buildHTML(message);
+  function reloadPage(){
+    setInterval(function reload(){
+      $.ajax({
+        type: 'GET',
+        url: './messages',
+        dataType: 'json',
+      })
+      .done(function(data){
+        var insertHTML = '';
+        var count_old = $('.chat-main-message').length;
+        var count_new = data.length;
+        for(var i = count_old; i < count_new; i++) {
+          insertHTML += buildHTML(data[i]);
+        };
+        $('.chat-main-messages').append(insertHTML)
       });
-    $('.chat-main-messages').append(insertHTML)
-    });
-    console.log('aaa')
+    }, 1000);
   };
 });
