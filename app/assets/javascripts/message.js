@@ -23,7 +23,6 @@ $(function() {
       processData : false
     })
     .done(function(data) {
-      console.log(data)
       var html = buildHTML(data);
       $('.chat-main-message').append(html);
       $('.js-form')[0].reset();
