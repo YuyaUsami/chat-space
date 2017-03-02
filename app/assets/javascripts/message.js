@@ -30,5 +30,24 @@ $(function() {
     .fail(function() {
       alert('error');
     });
+    reloadPage();
   });
+  function reloadPage(){
+    setInterval(function reload(){
+      $.ajax({
+        type: 'GET',
+        url: './messages',
+        dataType: 'json',
+      })
+      .done(function(data){
+        var insertHTML = '';
+        var count_old = $('.chat-main-message').length;
+        var count_new = data.length;
+        for(var i = count_old; i < count_new; i++) {
+          insertHTML += buildHTML(data[i]);
+        };
+        $('.chat-main-messages').append(insertHTML)
+      });
+    }, 1000);
+  };
 });
