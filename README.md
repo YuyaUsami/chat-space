@@ -1,27 +1,27 @@
 == README
-#chatspace-database
+# chatspace-database
 
-##users_table
+## users_table
 
-###association
+### association
 has_many :groups , through: :groups_users<br>
 has_many :groups_users<br>
 has_many :messages
 
-###table_contents
+### table_contents
 |column     |type      |Constraint               |
 |:---       |:---      |:---                     |
 |name       |string    |null: false/unique: true |
 |e-mail     |string    |null: false/unique: true |
 |password   |string    |null: false/unique: true |
 
-##messages_table
+## messages_table
 
-###association
+### association
 belongs_to :group<br>
 belongs_to :user
 
-###table_contents
+### table_contents
 |column     |type      |Constraint |
 |:---       |:---      |:---       |
 |body       |text      |           |
@@ -29,25 +29,25 @@ belongs_to :user
 |group_id   |references|foreign_key|
 |user_id    |references|foreign_key|
 
-##groups_table
+## groups_table
 
-###association
+### association
 has_many :users , through: :groups_users<br>
 has_many :groups_users<br>
 has_many :messages
 
-###table_contents
+### table_contents
 |column     |type   |Constraint              |
 |:---       |:---   |:---                    |
 |name       |string |null: false/unique: true|
 
-##groups_users_table
+## groups_users_table
 
-###association
+### association
 belongs_to :group<br>
 belongs_to :user
 
-###table_contents
+### table_contents
 |column     |type      |Constraint |
 |:---       |:---      |:---       |
 |group_id   |references|foreign_key|
